@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mostrar números de manera horizontal</title>
+  <style>
+    #result {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <label for="start">Inicio:</label>
+  <input type="number" id="start" placeholder="Ingrese el número inicial">
+
+  <label for="end">Fin:</label>
+  <input type="number" id="end" placeholder="Ingrese el número final">
+
+  <button onclick="mostrarNumeros()">Mostrar números</button>
+
+  <div id="result"></div>
+
+  <script>
+    function mostrarNumeros() {
+      const startInput = document.getElementById('start');
+      const endInput = document.getElementById('end');
+      const resultDiv = document.getElementById('result');
+
+      // Obtener los valores ingresados en las cajas de texto
+      const start = parseInt(startInput.value);
+      const end = parseInt(endInput.value);
+
+      // Validar que ambos valores sean números y que start sea menor que end
+      if (!isNaN(start) && !isNaN(end) && start < end) {
+        let numbers = '';
+        for (let i = start; i <= end; i += 2) {
+          numbers += i + (i + 2 <= end ? '-' : ''); // Agregar '-' entre números, excepto al final
+        }
+        resultDiv.textContent = numbers;
+      } else {
+        resultDiv.textContent = 'Ingrese valores válidos (Inicio menor que Fin).';
+      }
+    }
+  </script>
+</body>
+</html>

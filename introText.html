@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        input,
+        button,
+        label {
+            margin-bottom: 10px;
+        }
+
+        .error {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="cajaTexto" placeholder="Ingrese texto aquí">
+    <button id="boton">Ejecutar</button>
+    <label id="resultado"></label>
+    </div>
+</body>
+
+<script>
+        const cajaTexto = document.getElementById('cajaTexto');
+
+        cajaTexto.focus();
+
+        document.getElementById('boton').addEventListener('click', function () {
+            const texto = cajaTexto.value.trim();
+
+            if (texto === '') {
+                showAlertWithoutButton('La caja de texto está vacía. Por favor, ingrese texto.', 2000);
+            } else if (!isNaN(texto)) { // Verificar si el valor es un número
+                cajaTexto.classList.add('error');
+                showAlert('El valor ingresado es un número. Ingrese texto.', 'error');
+            } else {
+                cajaTexto.classList.remove('error');
+                document.getElementById('resultado').textContent = `Texto ingresado: ${texto}`;
+            }
+        });
+
+    function showAlert(message, type) {
+        alert(message);
+    }
+
+    function showAlertWithoutButton(message, duration) {
+        const alertBox = document.createElement('div');
+        alertBox.textContent = message;
+        alertBox.classList.add('alert');
+        document.body.appendChild(alertBox);
+
+        setTimeout(function () {
+            alertBox.style.display = 'none';
+        }, duration);
+    }
+
+</script>
+
+</html>

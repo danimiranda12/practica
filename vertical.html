@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        input,
+        button {
+            margin-bottom: 10px;
+        }
+
+        .vertical-text {
+            font-size: 20px;
+            font-family: Arial, sans-serif;
+            white-space: nowrap;
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input type="text" id="cajaTexto" placeholder="Ingrese texto aquí">
+        <button id="boton">Mostrar Verticalmente</button>
+        <div id="resultado" class="vertical-text"></div>
+    </div>
+
+    <script>
+            const cajaTexto = document.getElementById('cajaTexto');
+            const resultado = document.getElementById('resultado');
+
+            document.getElementById('boton').addEventListener('click', function () {
+                const texto = cajaTexto.value.replace(/\s/g, '');
+
+                if (texto === '') {
+                    alert('La caja de texto está vacía. Por favor, ingrese texto.');
+                } else {
+                    mostrarTextoVertical(texto);
+                }
+            });
+        
+
+        function mostrarTextoVertical(texto) {
+            const resultado = document.getElementById('resultado');
+            resultado.textContent = '';
+
+            for (let i = 0; i < texto.length; i++) {
+                const letra = texto.charAt(i);
+                const span = document.createElement('span');
+                span.textContent = letra;
+                resultado.appendChild(span);
+                resultado.appendChild(document.createElement('br'));
+            }
+        }
+
+    </script>
+</body>
+
+</html>

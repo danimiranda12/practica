@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            width: 300px;
+        }
+
+        input,
+        button,
+        p {
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        input[type="number"] {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input type="number" id="numero1" placeholder="Ingrese el primer número">
+        <input type="number" id="numero2" placeholder="Ingrese el segundo número">
+        <button id="calcular">Calcular</button>
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+            const numero1 = document.getElementById('numero1');
+            const numero2 = document.getElementById('numero2');
+            const resultado = document.getElementById('resultado');
+
+            numero1.focus();
+
+            document.getElementById('calcular').addEventListener('click', function () {
+                const valor1 = parseFloat(numero1.value);
+                const valor2 = parseFloat(numero2.value);
+
+                if (!isNaN(valor1) && !isNaN(valor2)) {
+                    const suma = valor1 + valor2;
+                    resultado.textContent = `La suma es: ${suma}`;
+                } else {
+                    resultado.textContent = 'Ingrese números válidos en ambas cajas.';
+                }
+            });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        input,
+        button,
+        p {
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input type="text" id="cajaTexto" placeholder="Ingrese texto aquí">
+        <button id="boton">Ejecutar</button>
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+            const cajaTexto = document.getElementById('cajaTexto');
+            const resultado = document.getElementById('resultado');
+
+            cajaTexto.focus();
+
+            document.getElementById('boton').addEventListener('click', function () {
+                const texto = cajaTexto.value.trim();
+                if(texto === ""){
+                resultado.textContent = 'ingrese texto ';
+                }else{
+                    resultado.textContent = " texto ingresado " + texto;
+                }
+            });
+        
+
+    </script>
+</body>
+
+</html>

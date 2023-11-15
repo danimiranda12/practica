@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mostrar números de manera horizontal</title>
+    <style>
+        #result {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <input type="number" id="numero1" placeholder="Ingrese el primer número">
+    <input type="number" id="numero2" placeholder="Ingrese el segundo número">
+    <button id="calcular">Calcular</button>
+    <p id="resultado">El resultado es: </p>
+
+    <script>
+        // Función para realizar el cálculo
+        function calcular() {
+            const num1 = parseFloat(document.getElementById('numero1').value);
+            const num2 = parseFloat(document.getElementById('numero2').value);
+    
+            const resultado = num1 + num2; // Puedes realizar aquí la operación que desees
+    
+            document.getElementById('resultado').textContent = `El resultado es: ${resultado}`;
+        }
+    
+        // Evento click en el botón
+        document.getElementById('calcular').addEventListener('click', calcular);
+    
+    </script>
+</body>
+
+</html>
